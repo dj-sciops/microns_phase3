@@ -8,5 +8,6 @@ nglui==2.14.2
 caveclient==5.7.0
 em_coregistration@git+https://github.com/AllenInstitute/em_coregistration@phase3#egg=em_coregistration
 torch==1.9.0
+cryptography==44.0.0
 seaborn
 ipykernel

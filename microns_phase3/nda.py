@@ -16,7 +16,7 @@ from microns_phase3 import DB_PREFIX
 # from pipeline import meso, experiment, stack
 # m65p3 = dj.create_virtual_module('microns_minnie65_02','microns_minnie65_02')
 
-schema = dj.schema(DB_PREFIX + 'microns_phase3_nda', create_tables=True)
+schema = dj.schema(DB_PREFIX + 'phase3_nda', create_tables=True)
 # schema.spawn_missing_classes()
 
 params = {'ignore_extra_fields':True,'skip_duplicates':True}
