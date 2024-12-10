@@ -8,6 +8,7 @@ import pandas as pd
 from scipy.interpolate import interp1d
 
 import datajoint as dj
+from microns_phase3 import DB_PREFIX
 
 # # BCM specific export schemas
 # from stimulus import stimulus
@@ -15,7 +16,7 @@ import datajoint as dj
 # from pipeline import meso, experiment, stack
 # m65p3 = dj.create_virtual_module('microns_minnie65_02','microns_minnie65_02')
 
-schema = dj.schema('microns_phase3_nda', create_tables=True)
+schema = dj.schema(DB_PREFIX + 'microns_phase3_nda', create_tables=True)
 # schema.spawn_missing_classes()
 
 params = {'ignore_extra_fields':True,'skip_duplicates':True}
