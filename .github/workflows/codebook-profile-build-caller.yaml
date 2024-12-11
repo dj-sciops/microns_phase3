@@ -1,22 +1,23 @@
-name: codebook-profile-build
+name: codebook-profile-build-caller
 on:
   workflow_dispatch:
     inputs:
       jhub_ver:
-        description: 'JupyterHub version'
+        description: "JupyterHub version"
         required: true
-        default: '4.0.2'
+        default: "4.0.2"
       py_ver:
-        description: 'Python version'
+        description: "Python version"
         required: true
-        default: '3.10'
+        default: "3.11"
       worker_type:
-        description: 'Use worker image as codebook profile image'
+        description: "Use worker image as codebook profile image"
         required: true
         type: choice
-        default: 'standard'
+        default: "standard"
         options:
           - standard
+
 jobs:
   get_meta:
     runs-on: ubuntu-latest
@@ -31,7 +32,7 @@ jobs:
       workflow_version: ${{steps.get_version.outputs.workflow_version}}
   call_sciops_docker_image_debian:
     needs: [get_meta]
-    uses: dj-sciops/.github/.github/workflows/codebook-profile-build-1.0.0.yaml@main
+    uses: ./.github/workflows/codebook-profile-build.yaml
     # uses: yambottle/dj-sciops.github/.github/workflows/codebook-profile-build.yaml@main
     with:
       jhub_ver: ${{ inputs.jhub_ver }}
