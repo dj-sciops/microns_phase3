@@ -11,7 +11,7 @@ RUN apt update && \
    jupyter image-bootstrap install --languages python && \
    chown jovyan:users /usr/local/bin/bootstrap-kernel.sh && \
    chmod 0755 /usr/local/bin/bootstrap-kernel.sh && \
-   chown -R jovyan:users /usr/local/bin/kernel-launchers && \
+   chown -R jovyan:users /usr/local/bin/kernel-launchers
 CMD /usr/local/bin/bootstrap-kernel.sh
 
 # Additional packages
