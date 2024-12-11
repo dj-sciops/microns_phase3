@@ -1,4 +1,4 @@
-name: worker-build
+name: worker-build-caller
 on:
   workflow_dispatch:
     inputs:
@@ -8,9 +8,6 @@ on:
         type: choice
         options:
           - standard
-          - spike_processing
-          - spike_sorting
-          - dlc
       staging:
         description: "Staging"
         required: true
@@ -35,8 +32,8 @@ jobs:
       workflow_version: ${{steps.get_version.outputs.workflow_version}}
   call-worker-ami-build:
     needs: [get_meta]
-    uses: dj-sciops/.github/.github/workflows/worker-ami-build-1.0.0.yaml@main
-    # uses: yambottle/dj-sciops.github/.github/workflows/worker-ami-build.yaml@main
+    uses: ./.github/workflows/worker-ami-build-1.0.0.yaml
+    # uses: yambottle/dj-sciops.github/.github/workflows/worker-ami-build-1.0.0.yaml@main
     with:
       worker_type: ${{github.event.inputs.worker_type}}
       workflow_version: ${{needs.get_meta.outputs.workflow_version}}
