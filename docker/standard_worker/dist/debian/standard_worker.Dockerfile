@@ -4,7 +4,7 @@ FROM jupyter/docker-stacks-foundation:python-${PY_VER:-3.9}
 
 USER root
 RUN apt update && \
-   apt install -y ssh git graphviz && \
+   apt install -y ssh git && \
    apt-get update && apt-get install ffmpeg libsm6 libxext6 -y && \
    pip install --upgrade pip && \
    pip install gateway_provisioners && \
@@ -12,9 +12,11 @@ RUN apt update && \
    chown jovyan:users /usr/local/bin/bootstrap-kernel.sh && \
    chmod 0755 /usr/local/bin/bootstrap-kernel.sh && \
    chown -R jovyan:users /usr/local/bin/kernel-launchers && \
-   mamba install -n base -y -c conda-forge graphviz && \
-   mamba clean --all -y
 CMD /usr/local/bin/bootstrap-kernel.sh
+
+# Additional packages
+RUN apt install -y graphviz
+
 WORKDIR $HOME
 USER jovyan
 
