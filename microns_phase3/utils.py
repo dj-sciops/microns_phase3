@@ -8,7 +8,7 @@ from coregister.transform.transform import Transform
 
 import datajoint as dj
 from microns_phase3 import DB_PREFIX
-nda = dj.create_virtual_module('phase3_nda', DB_PREFIX + 'phase3_nda')
+nda = dj.create_virtual_module('nda', DB_PREFIX + 'nda')
 
 def get_grid(field_key, desired_res=1):
     """ Get registered grid for this registration. """
