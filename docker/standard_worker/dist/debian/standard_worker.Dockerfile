@@ -1,5 +1,5 @@
 ARG PY_VER
-FROM jupyter/docker-stacks-foundation:python-${PY_VER:-3.9}
+FROM jupyter/docker-stacks-foundation:python-${PY_VER:-3.10}
 # FROM mambaorg/micromamba:debian12-slim
 
 USER root
