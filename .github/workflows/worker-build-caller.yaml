@@ -1,4 +1,4 @@
-name: worker-build-caller
+name: worker-build
 on:
   workflow_dispatch:
     inputs:
