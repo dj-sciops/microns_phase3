@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.10.*
+  - graphviz
+  - python-graphviz
+  - pydotplus
+  - nb_conda_kernels
+  - ipykernel
+name: microns_phase3
